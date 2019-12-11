@@ -3,7 +3,6 @@ const dataFileName = './users.json';
 const crypto = require('crypto');
 
 let users = readDataFromFile();
-console.log(users)
 
 // Below function creates a new user
 function newUser(req, res) {
