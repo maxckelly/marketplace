@@ -3,12 +3,7 @@ const dataFileName = './users.json';
 const crypto = require('crypto');
 
 let users = readDataFromFile();
-let getUsersArray = JSON.parse('./../users.json');
-
-getUsersArray.forEach((user) => {
-  console.log(user);
-})
-
+console.log(users)
 
 // Below function creates a new user
 function newUser(req, res) {

@@ -1,12 +1,10 @@
 // Imported Files 
-const users = require('../models/usersData.js');
-const userJSON = require('./../users.json');
-let getUsersArray = JSON.parse()
+const {users} = require('../models/usersData.js');
 
 
 const authenticate = ({username, password}) => {
-
-  const foundUser = users.find((user) => {
+  console.log(users);
+  const foundUser = users.users.find((user) => {
     return user.password === password;
   });
 
