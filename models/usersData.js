@@ -1,6 +1,4 @@
-const fs = require('fs');
 const mongoose = require('mongoose');
-const dataFileName = './users.json';
 
 
 const userSchema = new mongoose.Schema(
