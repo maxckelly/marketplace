@@ -22,7 +22,7 @@ const checkUser = (req, res, next) => {
     next();
   } else if (!user) {
     return res.send("Password Incorrect");
-  }
+  };
 };
 
 module.exports = { authenticate, checkUser };

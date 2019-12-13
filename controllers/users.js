@@ -11,17 +11,25 @@ async function allUsers(req, res) {
   }
 };
 
-function getOneUser(req,res) {
-  try {
-    const {id} = req.params;
-    console.log(id);
-    const user = User.findOne({id})
-    console.log(user)
-    res.send(user);
+async function getOneUser(req,res) {
 
+  const { id } = req.params
+
+  try {
+
+    const user = await User.findOne({ id: id })
+ 
+    if (user) {
+      console.log("hi")
+      res.send(user)
+    } else {
+      throw(err);
+    }
   } catch (err) {
-    res.json(err);
-  }
+    res.status(500).send({
+      msg: 'No users have been created'
+    })
+  };
 };
 
 // Below function creates a new user and increments the id
