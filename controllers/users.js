@@ -8,7 +8,7 @@ async function allUsers(req, res) {
     return res.send(allUsers);
   } catch (err) {
     res.json(err);
-  }
+  };
 };
 
 async function getOneUser(req,res) {
@@ -16,7 +16,6 @@ async function getOneUser(req,res) {
   const { id } = req.params
 
   try {
-
     const user = await User.findOne({ id: id })
  
     if (user) {
@@ -24,7 +23,8 @@ async function getOneUser(req,res) {
       res.send(user)
     } else {
       throw(err);
-    }
+    };
+    
   } catch (err) {
     res.status(500).send({
       msg: 'No users have been created'
