@@ -1,3 +1,6 @@
+// dotenv to control what is pushed to git
+require('dotenv').config()
+
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -11,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const usersRoutes = require('./routes/usersRoutes.js');
 app.use('/users', usersRoutes);
 const { authenticate, checkUser } = require('./middleware/auth');
-const mongoURI = 'mongodb://localhost/marketplace';
+const mongoURI = process.env.DB_URL;
 
 // Below connects to database
 mongoose.connect(mongoURI, {useNewUrlParser: true}, (err) => {

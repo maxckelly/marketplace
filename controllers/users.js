@@ -2,6 +2,28 @@ const mongoose = require('mongoose');
 const User = require('./../models/usersData');
 const crypto = require('crypto');
 
+async function allUsers(req, res) {
+  try {
+    const allUsers =  await User.find({});
+    return res.send(allUsers);
+  } catch (err) {
+    res.json(err);
+  }
+};
+
+function getOneUser(req,res) {
+  try {
+    const {id} = req.params;
+    console.log(id);
+    const user = User.findOne({id})
+    console.log(user)
+    res.send(user);
+
+  } catch (err) {
+    res.json(err);
+  }
+};
+
 // Below function creates a new user and increments the id
 async function newUser(req, res) {
 
@@ -30,4 +52,5 @@ async function newUser(req, res) {
   };
 };
 
-module.exports = {newUser};
+
+module.exports = {newUser, allUsers, getOneUser};
